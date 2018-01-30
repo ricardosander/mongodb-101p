@@ -53,7 +53,7 @@ class UserDAO:
 
         user = None
         try:
-            user = self.users.find_one({"_id" : username})
+            user = self.users.find_one({'_id': username})
         except:
             print "Unable to query database for user"
 
@@ -80,9 +80,7 @@ class UserDAO:
             user['email'] = email
 
         try:
-
             self.users.insert_one(user)
-
         except pymongo.errors.OperationFailure:
             print "oops, mongo error"
             return False
